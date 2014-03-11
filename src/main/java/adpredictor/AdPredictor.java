@@ -41,7 +41,7 @@ public class AdPredictor {
             throw new IllegalArgumentException(String.format("Number of features should be %d", numFeatures));
         
         double[] totalMeanVar = activeMeanVariance(features);
-        return NormalDistribution.CDF(totalMeanVar[0] / totalMeanVar[1], 0, 1);
+        return NormalDistribution.cdf(totalMeanVar[0] / totalMeanVar[1], 0, 1);
     }
     
     public void train(Feature[] features, boolean label) {

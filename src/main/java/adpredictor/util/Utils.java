@@ -41,7 +41,7 @@ public class Utils {
      * @return 
      */
     public static Gaussian priorBiasWeight(double priorProbability, double beta, int numFeatures) {
-        double biasMean = NormalDistribution.PPF(priorProbability, 0, 1) * (Math.pow(beta, 2) + numFeatures);
+        double biasMean = NormalDistribution.ppf(priorProbability, 0, 1) * (Math.pow(beta, 2) + numFeatures);
         return new Gaussian(biasMean, 1.0);
     }
     
@@ -79,7 +79,7 @@ public class Utils {
         if (t > MAX_ABS_SURPRISE)
             t = MAX_ABS_SURPRISE;
         
-        double v = NormalDistribution.PDF(t, 0, 1) / NormalDistribution.CDF(t, 0, 1);
+        double v = NormalDistribution.pdf(t, 0, 1) / NormalDistribution.cdf(t, 0, 1);
         double w = v * (v + t);
         return new double[]{v, w};
     }
