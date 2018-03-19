@@ -65,7 +65,7 @@ public class AdPredictor {
             double varMult = 1.0 - weight.variance / totalVar * w;
             Gaussian updated = new Gaussian(weight.mean + meanDelta, weight.variance * varMult);
             
-            setWeight(feature, applyDynamics(weight));
+            setWeight(feature, applyDynamics(updated));
         }
     }
 
